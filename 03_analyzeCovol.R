@@ -1,31 +1,36 @@
-#Chap03_further analysis of x
+# 06 Visualize common volatility, covol -----
+rm(list = ls())
+x <- read.csv("~/Desktop/common_vol/covol.csv")
+x$X <- as.Date(x$X)
+is.xts(x)
 
-#06 x and rolling x
+x <- xts(x[, -1], order.by = x$X)
+is.xts(x)
+colnames(x) <- c('covol')
 
-#head(globalCOVOL_Fit$x)
-#print(head(sort(globalCOVOL_Fit$x, decreasing = TRUE)))
-#plot(globalCOVOL_Fit$x, type = "b")
+plot(x$covol, type='p', xlab = "Date", 
+     ylab = "Estimated COVOL Value",
+     main='Magnitude of Volatility Comovement')
 
-x <- data.frame(Date = globalCOVOL_Fit$dates, 
-                x = globalCOVOL_Fit$x,
-                centered_x = globalCOVOL_Fit$x -1)
-colnames(x) <- c("Date","x_hat","centered_x")
-#class(x$Date) #"Date"
-
-#Calculate rolling x
-library(zoo)
-x$Rolling <- rollmean(x$x_hat, k = 3, fill = NA)
-
-
-#06.1 Calculate monthly x
-xMonthly <- aggregate(x$x_hat,
-                      by = list(format(globalCOVOL_Fit$dates, "%Y-%m")),
-                      FUN = mean)
-colnames(xMonthly) <-c("Date","x_mo")
-xMonthly$Date <- as.Date(paste0(xMonthly$Date, "-01"))
-#class(xMonthly$Date) == "Date"
+# # calculate rolling x
+# library(zoo)
+# x$rolling <- rollmean(x$covol, k = 3, fill = NA)
+# plot(x$rolling, type='p', xlab = "Date", 
+#      ylab = "Rolling COVOL Value", 
+#     main='Magnitude of Volatility Comovement (Rolling)')
 
 
-###06.2 save variables
-save(x, file = "/Users/Zjxi/Desktop/中证行业分类/x.RData")
-save(xMonthly, file = "/Users/Zjxi/Desktop/中证行业分类/xMonthly.RData")
+
+# 07 Identify top 5 risk events -----
+# that shook most sectors in the stock market
+
+# 2011-01-21 69.6707 
+  # Canadian Stock Market Attractive Escape From Falling U.S. Dollar (moneymorning.com)
+# 2020-11-09 55.7644
+  # Canada Stocks Surge on Vaccine Breakthrough, Led by Energy (bloomberg.com)
+# 2020-03-09 44.9155
+  # TSX sinks 10.3 per cent to 14-month low on plunging oil prices (toronto.citynews.ca)
+# 2016-11-10 40.3995
+  # Surprise U.S. Election Result in the Nov. 8 (marketwatch.com)
+# 2020-03-13 31.5448
+  # COVID-19 and plummeting oil prices (bloomberg.com)
