@@ -8,16 +8,17 @@ In this project, I
 
 •	Applied a novel financial risk measure proposed in a top academic journal, global Common Volatility, to the standardized residuals to estimate the volatility comovement across sectors that caused such cross-sectional correlation, identifying and quantifying significant risk events
 
-#### The process and some results
-![image](https://github.com/user-attachments/assets/ce660edb-641d-49e6-8a6e-9d2ad2c63331)
-
-![image](https://github.com/user-attachments/assets/afe7cfe7-daec-4a99-93f0-c0900552fce6)
-
-![image](https://github.com/user-attachments/assets/a55611de-70e3-43b5-91b3-b756cdd7f2e4)
-
-![image](https://github.com/user-attachments/assets/368f05cd-7138-4248-b4e7-044f1d3a6237)
-
+### Main result
 ![image](https://github.com/user-attachments/assets/c2ab3359-0b45-4a5b-a283-ea3a1d199dc1)
 
+### The process
+![image](https://github.com/user-attachments/assets/a5ca5236-87c9-462a-afa2-86dab9ed4cea)
 
+![image](https://github.com/user-attachments/assets/c435d610-3116-4536-af9c-c40a888095fe)
 
+![image](https://github.com/user-attachments/assets/3e9fbc4b-1be4-4397-9873-9ce970137a75)
+
+![image](https://github.com/user-attachments/assets/8a26acec-c81f-499f-9325-8488683d22db)
+
+### The idea behind the risk measure global common volatility, gloabl COVOL
+Please refer to [What are the events that shake our world? Measuring and hedging global COVOL](https://www.sciencedirect.com/science/article/pii/S0304405X22002070).
