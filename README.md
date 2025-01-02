@@ -11,7 +11,7 @@ In this project, I
 ### Main result
 ![image](https://github.com/user-attachments/assets/c2ab3359-0b45-4a5b-a283-ea3a1d199dc1)
 
-### The process
+### Some intermediate results
 ![image](https://github.com/user-attachments/assets/a5ca5236-87c9-462a-afa2-86dab9ed4cea)
 
 ![image](https://github.com/user-attachments/assets/c435d610-3116-4536-af9c-c40a888095fe)
