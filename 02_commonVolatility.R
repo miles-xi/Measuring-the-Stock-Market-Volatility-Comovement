@@ -14,12 +14,13 @@ is.xts(data)
 ## plot each return series
 # Generate plots for each column in the xts object
 plotreturns <- function(){
-  par(mfrow = c(5, 2))
+  # mar: bottom, left, top, right
+  par(mfrow = c(5, 2), mar = c(4, 4, 2, 2))
   for (col_name in colnames(data)) {
     plot(index(data), data[, col_name], type = "l", 
       main = paste("Return of", col_name), xlab = "Date", 
       ylab = "Return", col = "blue")
-  }
+    }
   par(mfrow = c(1, 1))  #Reset plotting parameters to default
   }
 
@@ -118,15 +119,15 @@ for (i in 1:ncol(data)) {
 ## can make some plots for the results above
 rowmeans_u <- rowMeans(u_ETFs, na.rm = TRUE)
 rowmeans_u <- xts(rowmeans_u, order.by = index(u_ETFs))
-plot(rowmeans_u, main='Average residual across sector returns')
+plot(rowmeans_u, main='Average of sector return residuals')
 
 rowmeans_e <- rowMeans(e_ETFs, na.rm = TRUE)
 rowmeans_e <- xts(rowmeans_e, order.by = index(e_ETFs))
-plot(rowmeans_e, main='Average standardized residual across sector returns')
+plot(rowmeans_e, main='Average of standardized residuals from sector returns')
 
 rowmeans_vol <- rowMeans(vol_ETFs, na.rm = TRUE)
 rowmeans_vol <- xts(rowmeans_vol, order.by = index(vol_ETFs))
-plot(rowmeans_vol, main='Average volatility across sector returns')
+plot(rowmeans_vol, main='Average volatility of sector returns')
 
 
 # the above was only for sector ETFs
@@ -140,7 +141,7 @@ garch_est <- ugarchfit(data = xic, spec = spec, solver = "hybrid")
 e_xic <- residuals(garch_est, standardize = TRUE)
 vol_xic <- sigma(garch_est)  #sigma = conditional vol, sigma^2 = conditional var.
 
-avplot(vol_xic, main='Market Volatility')
+plot(vol_xic, main='Market Volatility')
 
 # the final return series is the first principal component
 pc1 <- as.matrix(scale(pc.data) %*% loadings[, 1])
