@@ -1,6 +1,6 @@
 # Measuring-the-Stock-Market-Volatility-Comovement
 
-In this project, I 
+This project involved the following steps:
 
 •	Retrieved 200K+ OHLC data of 10 market/sector ETFs using Alpha Vantage API; transformed closing prices into log-return series; performed exploratory data analysis of closing prices and log-returns; corrected inaccurate return values caused by stock splits, ensuring data quality
 
